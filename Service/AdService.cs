@@ -19,7 +19,7 @@ namespace microservice_search_ads.Service
                 Title = ad.Title,
                 Description = ad.Description,
                 Price = ad.Price,
-                UserId = ad.UserId,
+
                 CreatedAt = ad.CreatedAt
             };
             database.AdModels.Add(newAd);

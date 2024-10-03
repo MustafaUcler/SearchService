@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04d23697988fdc5cd559d08414a180b8af3f3ec3")]
 [assembly: System.Reflection.AssemblyProductAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
