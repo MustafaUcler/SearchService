@@ -12,8 +12,8 @@ using microservice_search_ads;
 namespace microservice_search_ads.Migrations
 {
     [DbContext(typeof(SearchDbContext))]
-    [Migration("20241003135937_second")]
-    partial class second
+    [Migration("20241003141056_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

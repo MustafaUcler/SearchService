@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers"
+    "\\Controllers",
+    "\\Model"
   ],
   "SelectedNode": "\\microservice-search-ads.sln",
   "PreviewInSolutionExplorer": false
