@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-deployment
+spec:
+  replicas: 2  # Antal pods att köra
+  selector:
+    matchLabels:
+      app: search
+  template:
+    metadata:
+      labels:
+        app: search
+    spec:
+      containers:
+        - name: search
+          image: search:latest  # Namnet på din Docker-image
+          ports:
+               - targetPort: 4444
+               - containerPort: 8080  # Porten som containern lyssnar på
+

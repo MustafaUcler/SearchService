@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EZORUS1FxN3ylMLVMJk0+R5Kh5PLr4Jb5zlP1YVSUco=",
+  "Source": "microservice-search-ads",
+  "BasePath": "_content/microservice-search-ads",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
