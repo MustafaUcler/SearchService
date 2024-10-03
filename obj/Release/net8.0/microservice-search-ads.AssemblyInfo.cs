@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bec5b73a633403f9a90acc0669a321588a9d4c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("microservice-search-ads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

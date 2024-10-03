@@ -12,8 +12,8 @@ using microservice_search_ads;
 namespace microservice_search_ads.Migrations
 {
     [DbContext(typeof(SearchDbContext))]
-    [Migration("20241003112501_Initial")]
-    partial class Initial
+    [Migration("20241003135937_second")]
+    partial class second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,10 +44,6 @@ namespace microservice_search_ads.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

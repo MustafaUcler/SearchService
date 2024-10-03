@@ -136,3 +136,4 @@ C:\Users\Enemih\Desktop\microservice-search-ads\obj\Debug\net8.0\refint\microser
 C:\Users\Enemih\Desktop\microservice-search-ads\obj\Debug\net8.0\microservice-search-ads.pdb
 C:\Users\Enemih\Desktop\microservice-search-ads\obj\Debug\net8.0\microservice-search-ads.genruntimeconfig.cache
 C:\Users\Enemih\Desktop\microservice-search-ads\obj\Debug\net8.0\ref\microservice-search-ads.dll
+C:\Users\Enemih\Desktop\microservice-search-ads\obj\Debug\net8.0\microservice-search-ads.sourcelink.json
