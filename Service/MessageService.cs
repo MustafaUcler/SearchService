@@ -11,21 +11,15 @@ namespace microservice_search_ads.Service
         private IConnection connection;
         private IModel channel;
         private IServiceProvider provider;
-        private HttpClient httpClient;
-
         public MessageService(IServiceProvider provider)
         {
             this.provider = provider;
-            this.httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("http://localhost:5118")
-            };
         }
 
         // Anslut till RabbitMQ
         public void Connect()
         {
-            var factory = new ConnectionFactory { HostName = "localhost" };
+            var factory = new ConnectionFactory { HostName = "10.104.114.61", Port = 5672 };
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
             channel.ExchangeDeclare("logging", ExchangeType.Fanout);

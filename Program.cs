@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddDbContext<SearchDbContext>(options =>
-               options.UseSqlServer(builder.Configuration.GetConnectionString("SearchDb")));
+               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             // Add services to the container.
             builder.Services.AddScoped<AdService>();
             builder.Services.AddHostedService<MessageService>();
@@ -41,6 +41,14 @@ using Microsoft.EntityFrameworkCore;
 
 
             app.MapControllers();
+
+            using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+
+            var context = services.GetRequiredService<SearchDbContext>();
+            context.Database.Migrate();
+        }
 
             app.Run();
         }

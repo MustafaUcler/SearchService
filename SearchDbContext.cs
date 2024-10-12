@@ -7,11 +7,9 @@ namespace microservice_search_ads
     {
         public DbSet<AdModel> AdModels { get; set; }
 
-        public SearchDbContext(DbContextOptions<SearchDbContext> options) : base(options) { }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public SearchDbContext(DbContextOptions<SearchDbContext> options) : base(options) 
         {
-            base.OnModelCreating(modelBuilder);
+
         }
     }
 }

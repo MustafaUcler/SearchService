@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: search-deployment
+  name: search-microservice
+  labels:
+    app: search
 spec:
-  replicas: 2  # Antal pods att köra
+  replicas: 1  
   selector:
     matchLabels:
       app: search
@@ -13,9 +15,19 @@ spec:
         app: search
     spec:
       containers:
-        - name: search
-          image: search:latest  # Namnet på din Docker-image
+        - name: search-database
+          image: mcr.microsoft.com/mssql/server:2022-latest
           ports:
-               - targetPort: 4444
+            - containerPort: 4000
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              value: "Password123!"  # Change this to a strong password
+            - name: MSSQL_TCP_PORT
+              value: "4000"
+        - name: search
+          image: docker.io/library/search-microservice:latest  # Namnet på din Docker-image
+          imagePullPolicy: Never
+          ports:
                - containerPort: 8080  # Porten som containern lyssnar på
-

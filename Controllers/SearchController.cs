@@ -2,44 +2,42 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace microservice_search_ads.Controllers
 {
 
-        [Route("api/[controller]")]
+        [Route("api")]
         [ApiController]
         public class SearchController : ControllerBase
         {
-            private readonly SearchDbContext _context;
+            private readonly SearchDbContext database;
             private readonly MessageService _messageService;
 
-            public SearchController(SearchDbContext context, MessageService messageService)
+            public SearchController(SearchDbContext database, MessageService messageService)
             {
-                _context = context;
+                this.database = database;
                 _messageService = messageService;
             }
 
             [HttpGet]
-            public async Task<IActionResult> Get([FromQuery] string Title, [FromQuery] string Description, [FromQuery] decimal Price)
+            [Route("searchAd")]
+            public IActionResult SearchForAd(string title)
             {
-                var query = _context.AdModels.AsQueryable();
+                var result = database.AdModels.Where(r => r.Title.Contains(title))
+                    .Select(r => new ReturnAdDto {Title = r.Title, Description = r.Description, Price = r.Price})
+                    .ToList();
 
-                if (!string.IsNullOrEmpty(Title))
-                {
-                    query = query.Where(q => q.Title.Contains(Title));
-                }
+                _messageService.SendLoggingActions("User searched for: " + title);
 
-                if (!string.IsNullOrEmpty(Description))
-                {
-                    query = query.Where(q => q.Description.Contains(Description));
-                }
-
-                var results = await query.ToListAsync();
-
-                _messageService.SendLoggingActions("User searched for: " + Title);
-
-                return Ok(results);
+                return Ok(result);
             }
         }
 
     }
 
+public class ReturnAdDto
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
+}

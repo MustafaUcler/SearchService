@@ -1,4 +1,5 @@
 ﻿using microservice_search_ads.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace microservice_search_ads.Service
 {
@@ -13,9 +14,9 @@ namespace microservice_search_ads.Service
 
         public void CreateAd(AdDTO ad)
         {
+
             AdModel newAd = new AdModel
             {
-                Id = ad.Id,
                 Title = ad.Title,
                 Description = ad.Description,
                 Price = ad.Price,
@@ -23,6 +24,8 @@ namespace microservice_search_ads.Service
             };
             database.AdModels.Add(newAd);
             database.SaveChanges();
+
+            System.Console.WriteLine("Ad got saved to the database");
         }
 
         public void DeleteAd(int listingId)
